@@ -16,35 +16,35 @@
                         较昨日 <span class="yellow">+163</span>
                   </span>
                   <span class="count yellow">2456</span>
-                  <span>现存确诊</span>
+                  <span>现存疑似</span>
             </div>
             <div class="item">
                   <span class="yearsteday">
                         较昨日 <span class="blew">+163</span>
                   </span>
                   <span class="count blew">2456</span>
-                  <span>现存确诊</span>
+                  <span>现存重症</span>
             </div>
             <div class="item">
                   <span class="yearsteday">
                         较昨日 <span class="red">+163</span>
                   </span>
                   <span class="count red">2456</span>
-                  <span>现存确诊</span>
+                  <span>累计确诊</span>
             </div>
             <div class="item">
                   <span class="yearsteday">
                         较昨日 <span class="blue">+163</span>
                   </span>
                   <span class="count blue">2456</span>
-                  <span>现存确诊</span>
+                  <span>累计死亡</span>
             </div>
             <div class="item">
                   <span class="yearsteday">
                         较昨日 <span class="gree">+163</span>
                   </span>
                   <span class="count gree">2456</span>
-                  <span>现存确诊</span>
+                  <span>累计治愈</span>
             </div>
       </div>
   </div>
