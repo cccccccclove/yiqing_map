@@ -3,7 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import '../src/assets/css/common.css'
+import Echarts from "./plugin/echarts"
+import '../node_modules/echarts/map/js/china'
 
+Vue.use(Echarts)
 Vue.config.productionTip = false
 
 new Vue({

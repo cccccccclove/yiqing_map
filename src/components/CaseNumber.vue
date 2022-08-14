@@ -1,49 +1,49 @@
 <template>
   <div class="caseNumber">
       <p class="time">
-            <span>截至 2021-01-21 08:38 全国数据统计</span>
+            <span>截至 {{caseNumberStr.modifyTime | formatData}} 全国数据统计</span>
       </p>
       <div class="box">
             <div class="item">
                   <span class="yearsteday">
-                        较昨日 <span class="orange">+163</span>
+                        较昨日 <span class="orange">{{caseNumberStr.currentConfirmedIncr | upFuc}}</span>
                   </span>
-                  <span class="count orange">2456</span>
+                  <span class="count orange">{{caseNumberStr.currentConfirmedIncr}}</span>
                   <span>现存确诊</span>
             </div>
              <div class="item">
                   <span class="yearsteday">
-                        较昨日 <span class="yellow">+163</span>
+                        较昨日 <span class="yellow">{{caseNumberStr.suspectedIncr  | upFuc}}</span>
                   </span>
-                  <span class="count yellow">2456</span>
-                  <span>现存疑似</span>
+                  <span class="count yellow">{{caseNumberStr.suspectedCount}}</span>
+                  <span>现存境外输入</span>
             </div>
             <div class="item">
                   <span class="yearsteday">
-                        较昨日 <span class="blew">+163</span>
+                        较昨日 <span class="blew">{{caseNumberStr.seriousIncr | upFuc}}</span>
                   </span>
-                  <span class="count blew">2456</span>
-                  <span>现存重症</span>
+                  <span class="count blew">{{caseNumberStr.seriousCount}}</span>
+                  <span>现存无症状</span>
             </div>
             <div class="item">
                   <span class="yearsteday">
-                        较昨日 <span class="red">+163</span>
+                        较昨日 <span class="red">{{caseNumberStr.confirmedIncr | upFuc}}</span>
                   </span>
-                  <span class="count red">2456</span>
+                  <span class="count red">{{caseNumberStr.confirmedCount}}</span>
                   <span>累计确诊</span>
             </div>
             <div class="item">
                   <span class="yearsteday">
-                        较昨日 <span class="blue">+163</span>
+                        较昨日 <span class="blue">{{caseNumberStr.deadIncr | upFuc}}</span>
                   </span>
-                  <span class="count blue">2456</span>
+                  <span class="count blue">{{caseNumberStr.deadCount}}</span>
                   <span>累计死亡</span>
             </div>
             <div class="item">
                   <span class="yearsteday">
-                        较昨日 <span class="gree">+163</span>
+                        较昨日 <span class="gree">{{caseNumberStr.curedIncr | upFuc}}</span>
                   </span>
-                  <span class="count gree">2456</span>
+                  <span class="count gree">{{caseNumberStr.curedCount}}</span>
                   <span>累计治愈</span>
             </div>
       </div>
@@ -51,7 +51,40 @@
 </template>
 
 <script>
-export default {};
+export default {
+      props:{
+            caseNumberStr:{
+                  type:Object,
+                  default:function(){
+                        return {}
+                  }
+            }
+      },
+      filters:{
+            formatData:(time)=>{
+                  let data = new Date(time)
+                  // console.log(data)
+                  let YY = (data.getFullYear() || ' ' ) + '-'
+                  let MM = (
+                        data.getMonth() + 1 < 10 ? '0' + (data.getMonth()+1) : (data.getMonth() + 1 )|| ' ' 
+                  ) + '-'
+                  let DD = (
+                        data.getDate() < 10 ? '0' + data.getDate() : data.getDate() || ' '
+                  ) + '     '
+                  let hh = (
+                        data.getHours() < 10 ? '0' + data.getHours() : data.getHours()|| ' ' 
+                  )  + ':'
+                  let mm = data.getMinutes() < 10 ? '0' + data.getMinutes() : data.getMinutes() || ' ' 
+                  return YY + MM + DD + hh + mm
+            },
+            upFuc:(num)=>{
+                 return num > 0 ? '+' + num : '-' + num
+            }
+      },
+      methods: {
+            
+      },
+};
 </script>
 
 <style lang='scss' scoped>
