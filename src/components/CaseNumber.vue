@@ -90,7 +90,7 @@ export default {
 <style lang='scss' scoped>
 .caseNumber {
   padding-bottom: 0.1rem;
-  border-bottom: 0.001rem solid #ddd;
+//   border-bottom: 0.001rem solid #ddd;
   margin: 0 0.1rem;
   .time{
       font-size: 0.15rem;

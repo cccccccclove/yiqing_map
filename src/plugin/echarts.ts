@@ -25,7 +25,7 @@ const install = function (Vue: any) {
             }
             myEchart.setOption(option)
           },
-          chinaMap: function (id: any) {
+          chinaMap: function (id: any,data:any) {
             var dom = document.getElementById(id)
             var myEchart = echarts.init(dom)
             var option = {
@@ -34,7 +34,7 @@ const install = function (Vue: any) {
                 name: '省',
                 type: 'map', //配置图表类型
                 map: 'china',//中国地图
-                roam: true,//是否允许自动缩放
+                roam: false,//是否允许自动缩放
                 zoom: 1.2,//地图缩放比例，标准比例为1.2
                 aspectScale: 0.75,
                 label: {//配置颜色字体背景等
@@ -47,7 +47,7 @@ const install = function (Vue: any) {
                 },
                 itemStyle: {//地图样式
                   normal: {
-                    areaColor: 'rgba(0,255,236,0.1)',
+                    areaColor: 'rgba(0,0,0,0.1)',
                     borderColor: 'rgba(118,237,236,1)',
                   },
                   emphasis: {//边框样式
@@ -58,7 +58,8 @@ const install = function (Vue: any) {
                     borderWidth: 0,
                     shadowColor: 'rgba(0, 0, 0, 0.5)'
                   }
-                }
+                },
+               data
               }]
             }
             myEchart.setOption(option)

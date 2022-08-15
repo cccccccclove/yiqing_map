@@ -3,8 +3,8 @@
     <headerVue></headerVue>
     <covid-info :covidInfoStr='covidInfoStr'></covid-info>
     <case-number :caseNumberStr = 'caseNumberStr'></case-number>
-    <div id="line"></div>
-    <div id="chinaMap"></div>
+    <!-- <div id="china"></div> -->
+    <Map></Map>
   </div>
 </template>
 
@@ -14,13 +14,15 @@ import { Component, Vue } from 'vue-property-decorator';
 import headerVue from '../components/headerVue.vue'
 import covidInfo from '../components/CovidInfo.vue'
 import caseNumber from '../components/CaseNumber.vue'
+import Map from '../components/Map.vue'
 import api from '../api/index.js'
 export default {
   components: {
     // HelloWorld,
     headerVue,
     covidInfo,
-    caseNumber
+    caseNumber,
+    Map
   },
   data() {
     return {
@@ -83,9 +85,7 @@ export default {
       }
     })
       .catch(err => console.log(err));
-    
-    this.$charts.line('line')
-    this.$charts.chinaMap('chinaMap')
+      // this.$charts.chinaMap('china')
   }
 }
 // @Component({
@@ -93,12 +93,9 @@ export default {
 // export default class HomeView extends Vue {}
 </script>
 <style lang="scss" scoped>
-#line{
+#china{
   width: 4rem;
   height: 4rem;
-}
-#chinaMap{
-  width: 4rem;
-  height: 4rem;
+  display: block;
 }
 </style>
